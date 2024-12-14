@@ -1,6 +1,6 @@
 import { FaHeart } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
-function FavoriteToggleButton({ productId }: { productId: string }) {
+function FavoriteToggleButton() {
   return (
     <Button size="icon" variant="outline" className="p-2 cursor-pointer">
       <FaHeart />
@@ -8,3 +8,5 @@ function FavoriteToggleButton({ productId }: { productId: string }) {
   );
 }
 export default FavoriteToggleButton;
+
+//{ productId }: { productId: string } Add this in parameters
