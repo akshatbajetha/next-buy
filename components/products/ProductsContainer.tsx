@@ -13,7 +13,7 @@ async function ProductsContainer({
   layout: string;
   search: string;
 }) {
-  const products = await fetchAllProducts();
+  const products = await fetchAllProducts({ search });
   const totalProducts = products.length;
   const searchTerm = search ? `&search=${search}` : "";
   return (
@@ -26,6 +26,7 @@ async function ProductsContainer({
           </h4>
           <div className="flex gap-x-4">
             <Button
+              title="Grid View"
               variant={layout === "grid" ? "default" : "ghost"}
               size="icon"
               asChild
@@ -35,6 +36,7 @@ async function ProductsContainer({
               </Link>
             </Button>
             <Button
+              title="List View"
               variant={layout === "list" ? "default" : "ghost"}
               size="icon"
               asChild
