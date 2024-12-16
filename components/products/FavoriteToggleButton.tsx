@@ -9,4 +9,4 @@ function FavoriteToggleButton() {
 }
 export default FavoriteToggleButton;
 
-//{ productId }: { productId: string } Add this in parameters
+// TODO { productId }: { productId: string } Add this in parameters

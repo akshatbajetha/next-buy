@@ -9,4 +9,4 @@ function AddToCart() {
 }
 export default AddToCart;
 
-//{ productId }: { productId: string } Add this in parameters
+// TODO { productId }: { productId: string } Add this in parameters

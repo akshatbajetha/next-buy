@@ -16,4 +16,4 @@ async function ProductRating() {
 
 export default ProductRating;
 
-//{ productId }: { productId: string } in parameter
+// TODO { productId }: { productId: string } in parameter
