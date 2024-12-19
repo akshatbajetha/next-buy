@@ -1,6 +1,6 @@
 import { Button } from "../ui/button";
 
-function AddToCart() {
+function AddToCart({ productId }: { productId: string }) {
   return (
     <Button className="capitalize mt-8" size="lg">
       Add to Cart
@@ -8,5 +8,3 @@ function AddToCart() {
   );
 }
 export default AddToCart;
-
-// TODO { productId }: { productId: string } Add this in parameters
