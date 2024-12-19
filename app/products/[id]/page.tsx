@@ -2,9 +2,10 @@ import BreadCrumbs from "@/components/single-product/BreadCrumbs";
 import { fetchSingleProduct } from "@/utils/actions";
 import Image from "next/image";
 import { formatCurrency } from "@/utils/format";
-import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
+import FavoriteToggleButton from "@/components/products/FavouriteToggleButton";
 import AddToCart from "@/components/single-product/AddToCart";
 import ProductRating from "@/components/single-product/ProductRating";
+import ShareButton from "@/components/single-product/ShareButton";
 
 async function SingleProductPage({ params }: { params: { id: string } }) {
   const product = await fetchSingleProduct(params.id);
@@ -29,8 +30,8 @@ async function SingleProductPage({ params }: { params: { id: string } }) {
         <div>
           <div className="flex gap-x-8 items-center">
             <h1 className="capitalize text-3xl font-bold">{name}</h1>
-            {/* TODO <FavoriteToggleButton productId={params.id} /> */}
-            <FavoriteToggleButton />
+            <FavoriteToggleButton productId={params.id} />
+            <ShareButton name={product.name} productId={params.id} />
           </div>
           {/* TODO <ProductRating productId={params.id} /> */}
           <ProductRating />

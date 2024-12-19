@@ -182,3 +182,65 @@ export const updateProductImageAction = async (
     return renderError(error);
   }
 };
+
+export const fetchFavouriteId = async ({
+  productId,
+}: {
+  productId: string;
+}) => {
+  const user = await getAuthUser();
+  const favourite = await db.favourite.findFirst({
+    where: {
+      productId,
+      clerkId: user.id,
+    },
+    select: {
+      id: true,
+    },
+  });
+  return favourite?.id || null;
+};
+
+export const toggleFavouriteAction = async (prevState: {
+  productId: string;
+  favouriteId: string | null;
+  pathname: string;
+}) => {
+  const user = await getAuthUser();
+  const { productId, favouriteId, pathname } = prevState;
+  try {
+    if (favouriteId) {
+      await db.favourite.delete({
+        where: {
+          id: favouriteId,
+        },
+      });
+    } else {
+      await db.favourite.create({
+        data: {
+          productId,
+          clerkId: user.id,
+        },
+      });
+    }
+    revalidatePath(pathname);
+    return {
+      message: favouriteId ? "Removed from Favourites" : "Added to Favourites",
+    };
+  } catch (error) {
+    return renderError(error);
+  }
+};
+
+export const fetchUserFavourites = async () => {
+  const user = await getAuthUser();
+  const favorites = await db.favourite.findMany({
+    where: {
+      clerkId: user.id,
+    },
+    include: {
+      product: true,
+    },
+  });
+  return favorites;
+};
