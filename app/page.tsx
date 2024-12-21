@@ -13,3 +13,5 @@ function HomePage() {
   );
 }
 export default HomePage;
+
+// TODO Sort Analytics, Check CORS error, Fix the terminal error, Check the login bug after deployment

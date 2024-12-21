@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { Button } from "../ui/button";
 import { FiShoppingCart } from "react-icons/fi";
+import { fetchCartItems } from "@/utils/actions";
 
-function CartButton() {
-  //TEMP
-  const numItemsInCart = 5;
+async function CartButton() {
+  const numItemsInCart = await fetchCartItems();
 
   return (
     <Button
