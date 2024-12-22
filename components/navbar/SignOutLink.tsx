@@ -6,7 +6,9 @@ import Link from "next/link";
 function SignOutLink() {
   const { toast } = useToast();
   const handleLogout = () => {
-    toast({ description: "Logged Out Successfully" });
+    setTimeout(() => {
+      toast({ description: "Logged Out Successfully" });
+    }, 1000);
   };
   return (
     <SignOutButton>
