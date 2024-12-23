@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 import FavoriteToggleButton from "./FavouriteToggleButton";
+import ProductRating from "../single-product/ProductRating";
 
 function ProductsGrid({ products }: { products: Product[] }) {
   return (
@@ -27,11 +28,14 @@ function ProductsGrid({ products }: { products: Product[] }) {
                       className="rounded w-full object-cover transform group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
-                  <div className="mt-4 text-center">
-                    <h2 className="text-lg  capitalize">{name}</h2>
-                    <p className="text-muted-foreground  mt-2">
+                  <div className="mt-4 text-center flex justify-between">
+                    <h2 className="text-lg  capitalize self-start">{name}</h2>
+                    <p className="text-muted-foreground self-end">
                       {dollarsAmount}
                     </p>
+                  </div>
+                  <div>
+                    <ProductRating productId={productId} />
                   </div>
                 </CardContent>
               </Card>
