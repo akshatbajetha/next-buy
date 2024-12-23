@@ -51,3 +51,5 @@ function CreateProductPage() {
   );
 }
 export default CreateProductPage;
+
+// TODO Remove the default values
