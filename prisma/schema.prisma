@@ -3,13 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL")
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
 }
 
 model Product {
-  id          String      @id @default(uuid())
+  id          String      @id @default(uuid()) @map("_id")
   name        String
   company     String
   description String
@@ -25,7 +24,7 @@ model Product {
 }
 
 model Favourite {
-  id        String   @id @default(uuid())
+  id        String   @id @default(uuid()) @map("_id")
   clerkId   String
   productId String
   createdAt DateTime @default(now())
@@ -34,7 +33,7 @@ model Favourite {
 }
 
 model Review {
-  id             String   @id @default(uuid())
+  id             String   @id @default(uuid()) @map("_id")
   clerkId        String
   rating         Int
   comment        String
@@ -47,7 +46,7 @@ model Review {
 }
 
 model Cart {
-  id             String     @id @default(uuid())
+  id             String     @id @default(uuid()) @map("_id")
   clerkId        String
   cartItems      CartItem[]
   numItemsInCart Int        @default(0)
@@ -61,7 +60,7 @@ model Cart {
 }
 
 model CartItem {
-  id        String   @id @default(uuid())
+  id        String   @id @default(uuid()) @map("_id")
   product   Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
   productId String
   cart      Cart     @relation(fields: [cartId], references: [id], onDelete: Cascade)
@@ -72,7 +71,7 @@ model CartItem {
 }
 
 model Order {
-  id         String   @id @default(uuid())
+  id         String   @id @default(uuid()) @map("_id")
   clerkId    String
   products   Int      @default(0)
   orderTotal Int      @default(0)
