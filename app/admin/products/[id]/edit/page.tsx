@@ -44,7 +44,7 @@ async function EditProductPage({ params }: { params: { id: string } }) {
               defaultValue={company}
             />
 
-            <PriceInput defaultValue={price} />
+            <PriceInput />
           </div>
           <TextAreaInput
             name="description"
