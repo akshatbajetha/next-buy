@@ -659,6 +659,14 @@ export const checkoutOrderAction = async (
         id: cartId,
       },
     });
+    await db.order.update({
+      where: {
+        id: formData.get("orderId") as string,
+      },
+      data: {
+        isPaid: true,
+      },
+    });
   } catch (error) {
     return renderError(error);
   }

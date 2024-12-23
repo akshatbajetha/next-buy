@@ -13,6 +13,7 @@ import { fetchUserOrders } from "@/utils/actions";
 import { formatCurrency, formatDate } from "@/utils/format";
 async function OrdersPage() {
   const orders = await fetchUserOrders();
+  console.log(orders);
 
   return (
     <>

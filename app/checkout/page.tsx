@@ -23,6 +23,7 @@ function CheckoutPage() {
   const searchParams = useSearchParams();
   const [cartItems, setCartItems] = useState<CartItemWithProduct[]>([]);
   const cartId = searchParams.get("cartId")!;
+  const orderId = searchParams.get("orderId")!;
   useEffect(() => {
     const fetchData = async () => {
       const fetchedCartItems = await fetchCartItemsByCartId(cartId);
@@ -43,6 +44,7 @@ function CheckoutPage() {
       <SectionTitle text="Order Summary" />
       <FormContainer action={checkoutOrderAction}>
         <input type="hidden" name="cartId" value={cartId} />
+        <input type="hidden" name="orderId" value={orderId} />
         <SummarySection cartItems={cartItems} />
         <a onClick={handleClick}>
           <SubmitButton text="Pay Now" className="mt-8 p-6 text-lg" />
