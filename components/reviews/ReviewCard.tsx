@@ -2,9 +2,11 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import Rating from "./Rating";
 import Comment from "./Comment";
 import Image from "next/image";
+import Link from "next/link";
 
 type ReviewCardProps = {
   reviewInfo: {
+    productId: string;
     comment: string;
     rating: number;
     name: string;
@@ -26,10 +28,11 @@ function ReviewCard({ reviewInfo, children }: ReviewCardProps) {
             className="w-12 h-12 rounded-full object-cover"
           />
           <div className="ml-4">
-            {/* TODO Add Link to the particular Product */}
-            <h3 className="text-sm font-bold capitalize mb-1">
-              {reviewInfo.name}
-            </h3>
+            <Link href={`/products/${reviewInfo.productId}`}>
+              <h3 className="text-sm font-bold capitalize mb-1 hover:underline">
+                {reviewInfo.name}
+              </h3>
+            </Link>
             <Rating rating={reviewInfo.rating} />
           </div>
         </div>

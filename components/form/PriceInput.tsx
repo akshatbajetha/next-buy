@@ -2,11 +2,8 @@ import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 
 const name = "price";
-type FormInputNumberProps = {
-  defaultValue?: number;
-};
 
-function PriceInput({ defaultValue }: FormInputNumberProps) {
+function PriceInput() {
   return (
     <div className="mb-2">
       <Label htmlFor="price" className="capitalize">
@@ -17,8 +14,8 @@ function PriceInput({ defaultValue }: FormInputNumberProps) {
         type="number"
         name={name}
         min={1}
-        defaultValue={defaultValue || 100}
         required
+        placeholder="Enter product price"
       />
     </div>
   );

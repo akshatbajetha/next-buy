@@ -13,6 +13,7 @@ async function ProductReviews({ productId }: { productId: string }) {
         {reviews.map((review) => {
           const { comment, rating, authorImageUrl, authorName } = review;
           const reviewInfo = {
+            productId,
             comment,
             rating,
             image: authorImageUrl,
@@ -25,5 +26,3 @@ async function ProductReviews({ productId }: { productId: string }) {
   );
 }
 export default ProductReviews;
-
-// TODO Instead of default value in review, put a placeholder. Secondly reset the feedback field to empty

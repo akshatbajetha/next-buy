@@ -5,9 +5,15 @@ type TextAreaInputProps = {
   name: string;
   labelText?: string;
   defaultValue?: string;
+  placeholder?: string;
 };
 
-function TextAreaInput({ name, labelText, defaultValue }: TextAreaInputProps) {
+function TextAreaInput({
+  name,
+  labelText,
+  defaultValue,
+  placeholder,
+}: TextAreaInputProps) {
   return (
     <div className="mb-2">
       <Label htmlFor={name} className="capitalize">
@@ -20,6 +26,7 @@ function TextAreaInput({ name, labelText, defaultValue }: TextAreaInputProps) {
         rows={5}
         required
         className="leading-loose"
+        placeholder={placeholder}
       />
     </div>
   );
