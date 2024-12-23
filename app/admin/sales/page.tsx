@@ -29,15 +29,8 @@ async function SalesPage() {
         </TableHeader>
         <TableBody>
           {orders.map((order) => {
-            const {
-              id,
-              products,
-              orderTotal,
-              tax,
-              shipping,
-              createdAt,
-              email,
-            } = order;
+            const { products, orderTotal, tax, shipping, createdAt, email } =
+              order;
 
             return (
               <TableRow key={order.id}>

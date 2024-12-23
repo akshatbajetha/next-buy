@@ -31,8 +31,7 @@ async function OrdersPage() {
           </TableHeader>
           <TableBody>
             {orders.map((order) => {
-              const { id, products, orderTotal, tax, shipping, createdAt } =
-                order;
+              const { products, orderTotal, tax, shipping, createdAt } = order;
 
               return (
                 <TableRow key={order.id}>
